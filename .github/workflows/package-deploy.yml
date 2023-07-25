@@ -1,0 +1,32 @@
+name: package-deploy
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  publish-npm-registry:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+          registry-url: https://npm.pkg.github.com/
+      - run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.PACKAGE_PUBLISH_KEY}}
+      - run: npm run build
+      - run: npm run build:tsc
+      - run: mv ./index.ts ./index.d.ts
+      - run: rm -rf ./src
+      - run: rm -rf ./public
+      - run: rm -rf ./.github
+      - run: mv ./lib/src ./src
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.PACKAGE_PUBLISH_KEY}}

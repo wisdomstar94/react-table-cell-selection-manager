@@ -1,0 +1,41 @@
+.table-draggable-cell-active {
+  background-color: #1dc7ad;
+}
+
+.table-drag-area-box {
+  border: 1px dashed #666;
+  stroke-dasharray: 5;
+}
+
+.table-draggable-target-table {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+.table-drag-area-box-common {
+  display: block;
+  position: fixed;
+  z-index: 100;
+  pointer-events: none; 
+}
+
+.html-window-scroll-block {
+  width: 100%;
+  position: fixed;
+}
+
+.body-window-scroll-block {
+  width: 100%;
+  overflow: hidden !important;
+  touch-action: none;
+  position: fixed;
+  right: 0;
+  overscroll-behavior-y: none;
+}
+
+.scroll-target-scroll-block {
+  overflow: hidden !important;
+  touch-action: none;
+}

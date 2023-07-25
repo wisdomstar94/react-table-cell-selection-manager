@@ -1,0 +1,21 @@
+.table {
+  @apply w-full relative text-sm border-t border-l border-slate-300;
+}
+.table > thead {
+  /* @apply ; */
+}
+.table > thead > tr {
+  /* @apply ; */
+}
+.table > thead > tr > th {
+  @apply border-r border-b border-slate-300;
+}
+.table > tbody {
+  /* @apply ; */
+}
+.table > tbody > tr {
+  /* @apply ; */
+}
+.table > tbody > tr > td, .table > tbody > tr > th {
+  @apply font-normal border-r border-b border-slate-300 p-2; 
+}
